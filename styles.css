@@ -1,0 +1,448 @@
+/* 全局样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: serif;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* 侧边栏样式 */
+.sidebar {
+    width: 30%;
+    padding: 60px 40px;
+    background: #fff;
+    border-right: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+}
+
+@font-face {
+    font-family: 'TAN-SOMETLMES';  /* 定义字体名称 */
+    src: url('font/TAN\ -\ SOMETIMES.otf') format('opentype');  /* 指定字体文件路径 */
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'alingkar';  /* 定义字体名称 */
+    src: url('font/alingkar.otf') format('opentype');  /* 指定字体文件路径 */
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ENGR';  /* 定义字体名称 */
+    src: url('font/ENGR.TTF') format('truetype');  /* 指定字体文件路径 */
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'sylfaen';  /* 定义字体名称 */
+    src: url('font/sylfaen.ttf') format('truetype');  /* 指定字体文件路径 */
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'alize';  /* 定义字体名称 */
+    src: url('font/alize.ttf') format('truetype');  /* 指定字体文件路径 */
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+.logo {
+    margin-bottom: 30px;
+}
+
+.logo a {
+    font-family: 'TAN-SOMETLMES';
+    color: #ff0000;
+    font-size: 52px;
+    text-decoration: none;
+    display: block;
+}
+
+.subtitle {
+    font-family: 'alingkar';
+    font-size: 40px;   /*48px*/
+    margin-bottom: 30px;
+}
+
+.nav-links {
+    list-style: none;
+    font-family: 'alize';
+}
+
+.nav-links li {
+    margin: 30px 0;
+}
+
+.nav-links li:first-child {
+    margin-top: 0;
+}
+
+.nav-links li:last-child {
+    margin-bottom: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #000;
+}
+
+/* 内容区样式 */
+.content {
+    flex: 1;
+    padding: 40px 60px;
+}
+
+.project {
+    margin-bottom: 100px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+    display: none;
+    -webkit-transform: translateY(20px);
+    -moz-transform: translateY(20px);
+    -ms-transform: translateY(20px);
+    -o-transform: translateY(20px);
+}
+
+.project h1 {
+    font-size: 90px;
+    font-family: 'ENGR';
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: slideInTitle 0.8s ease forwards;
+}
+
+@keyframes slideInTitle {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+        -webkit-transform: translateX(0);
+        -moz-transform: translateX(0);
+        -ms-transform: translateX(0);
+        -o-transform: translateX(0);
+}
+}
+
+.project-info {
+    font-size: 24px;
+    margin-bottom: 30px;
+    font-family: 'alize';
+    margin-bottom: 15px
+    
+}
+
+.project-info .subtitle {
+    font-style: italic;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.project-info .description {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    max-width: 600px;
+}
+
+.project img {
+    max-width: 100%;
+    height: auto;
+}
+
+.project-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    transition: all 0.4s ease;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 4px;
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+#home .project-image {
+    text-align: center;
+}
+
+.project-image img,
+.project-image video {
+    max-width: 900px;
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.project-image video {
+    display: block;
+    width: 100%;
+    max-width: 900px;
+}
+
+.character-gallery img {
+    object-fit: cover;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.project-image:hover img {
+    transform: scale(1.02);
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        padding: 20px;
+    }
+    
+    .project h1 {
+        font-size: 32px;
+    }
+    
+    .project-info .description {
+        font-size: 13px;
+    }
+    
+    .content {
+        padding: 20px;
+    }
+}
+
+.content {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.content.loading {
+    opacity: 0;
+}
+
+
+
+@keyframes boldText {
+    from {
+        font-weight: normal;
+    }
+    to {
+        font-weight: bold;
+    }
+}
+
+
+
+/* 项目部分的默认状态为隐藏 */
+.project {
+    display: none;
+}
+
+/* 激活状态的项目显示 */
+.project.active {
+    display: block;
+}
+
+/* 导航链接样式 */
+.nav-link {
+    cursor: pointer;
+    font-family: alize;
+    font-size: 30px;       /* 36px */
+    transition: font-weight 0.3s ease;
+    color: #000;  /* 确保默认颜色为黑色 */
+}
+
+/* 添加选中状态的样式 */
+.nav-link.active {
+    font-weight: bold;
+}
+
+.project-info p {
+    margin-bottom: 15px;  /* 设置p标签之间的间距 */
+}
+
+/* 特别处理home页面的分割线 */
+#home hr {
+    max-width: 800px;
+    margin: 0 auto 30px;
+    border-top: 1px solid #000;
+}
+
+/* 修改hr标签的样式 */
+.project hr {
+    margin-bottom: 30px;  /* 添加下间距 */
+    border: none;  /* 移除默认边框 */
+    border-top: 1px solid #000;  /* 添加上边框 */
+}
+
+/* 添加平滑滚动效果 */
+html {
+    scroll-behavior: smooth;
+}
+
+/* 添加图片悬停效果 */
+.project-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    transition: all 0.4s ease;
+}
+
+.project-image:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+.project-image img {
+    transition: transform 0.6s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.project-image:hover img {
+    transform: scale(1.05);
+}
+
+/* 导航链接悬停效果 */
+.nav-links a {
+    position: relative;
+    padding: 5px 0;
+    transition: all 0.3s ease;
+}
+
+
+
+.nav-links a:hover::before {
+    width: 100%;
+}
+
+/* 添加项目信息渐入效果 */
+.project-info {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInInfo 0.8s ease 0.3s forwards;
+}
+
+@keyframes fadeInInfo {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 优化分割线动画 */
+.project hr {
+    position: relative;
+    overflow: hidden;
+}
+
+
+
+@keyframes slideLine {
+    to {
+        left: 0;
+    }
+}
+
+/* 添加视频播放器样式 */
+.project-image video {
+    border-radius: 8px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+/* 优化logo动画 */
+.logo a {
+    position: relative;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.logo a:hover {
+    transform: scale(1.05);
+}
+
+/* 添加雪花图标动画 */
+.nav-links li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-links li::before {
+    content: '❄';
+    opacity: 0.6;
+    transform: rotate(0deg);
+    transition: all 0.3s ease;
+}
+
+.nav-links li:hover::before {
+    opacity: 1;
+    transform: rotate(180deg);
+}
+
+/* 添加页面切换过渡效果 */
+.project {
+    animation: fadeInProject 0.8s ease forwards;
+}
+
+@keyframes fadeInProject {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 添加响应式hover效果 */
+@media (hover: hover) {
+    .project-image:hover {
+        transform: translateY(-5px);
+    }
+}
+
+/* 优化移动端体验 */
+@media (max-width: 768px) {
+    .project-image {
+        transform: none !important;
+    }
+    
+    .nav-links li::before {
+        display: none;
+    }
+}
+  
